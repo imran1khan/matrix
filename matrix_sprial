@@ -51,6 +51,5 @@ int main()
 		cout << "\n";
 	}
 	cout << endl;
-	//sprial_matrix(a,4,4);
-	snake_matrix(a, 4, 4);
+	sprial_matrix(a,4,4);
 }
