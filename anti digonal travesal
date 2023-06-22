@@ -1,0 +1,69 @@
+// anti diganaol traversel in matrix
+#include<iostream>
+#include<vector>
+using namespace std;
+
+void print_digonal(vector<vector<int>> arr)
+{
+	int m = arr.size();
+	int n = arr[0].size();
+	int row = 0, coloum = 0;
+	bool up = true;
+	while (row<m && coloum<n)
+	{
+		if (up==true)
+		{
+			while (row>0 && coloum<n-1)
+			{
+				cout << arr[row][coloum] << ",";
+				row--;
+				coloum++;
+			}
+			cout << arr[row][coloum] << ",";
+			if (coloum==n-1)
+			{
+				row++;
+			}
+			else
+			{
+				coloum++;
+			}
+		}
+		else
+		{
+			while (row < m-1 && coloum > 0 )
+			{
+				cout << arr[row][coloum] << ",";
+				row++;
+				coloum--;
+			}
+			cout << arr[row][coloum] << ",";
+			if (row == m-1)
+			{
+				coloum++;
+			}
+			else
+			{
+				row++;
+			}
+		}
+		up = !up;
+	}
+}
+int main()
+{
+	vector<vector<int>> arr = { {1,2,3,4},{4,5,6,6},{7,8,9,9} };
+	cout << "normal vector "<<endl;
+	for (int i = 0; i < arr.size(); i++)
+	{
+		for(int j=0;j<arr[0].size();j++)
+		{
+			cout << arr[i][j] << " ";
+		}
+		cout << endl;
+	}
+
+	cout << "diganol treversing" << endl;
+
+	print_digonal(arr);
+}
