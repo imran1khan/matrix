@@ -1,0 +1,55 @@
+//Print a given matrix in spiral form
+#include<iostream>
+using namespace std;
+void sprial_matrix(int a[4][4],int r,int c)
+{
+	int top = 0, bottom = r - 1;
+	int left = 0, right = c - 1;
+	while (left<=right && top<=bottom)
+	{
+		for (int i = left; i <= right; i++)
+		{
+			cout << a[top][i] << " ";
+		}
+		top++;
+		for (int i = top; i <= bottom; i++)
+		{
+			cout << a[i][right] << " ";
+		}
+		right--;
+		if (top<=bottom)
+		{
+			for (int i = right; i >= left; i--)
+			{
+				cout << a[bottom][i] << " ";
+			}
+			bottom--;
+		}
+		if (left<=right)
+		{
+			for (int i = bottom; i >= top; i--)
+			{
+				cout << a[i][left] << " ";
+			}
+			left++;
+		}
+	}
+}
+int main()
+{
+	int a[4][4] = { {11,22,33,43},
+				{52,36,47,18},
+				{93,21,35,44},
+				{63,77,63,95} };
+	for (int i = 0; i < 4; i++)
+	{
+		for(int j=0;j<4;j++)
+		{
+			cout << a[i][j]<<" ";
+		}
+		cout << "\n";
+	}
+	cout << endl;
+	//sprial_matrix(a,4,4);
+	snake_matrix(a, 4, 4);
+}
